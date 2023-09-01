@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace ASP.NetFramWork
+{
+    public partial class ViewStudentDetails : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            string data = Request.QueryString["User"];
+            UserTextBox.Text = data;
+            string course = Request.Cookies["cookieCourse"].Value;
+            if (Session["ID"] != null)
+            {
+                string id = Session["ID"].ToString();
+            }
+        }
+    }
+}

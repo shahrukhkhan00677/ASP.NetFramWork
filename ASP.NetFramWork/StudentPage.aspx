@@ -23,6 +23,7 @@
                  <tr>
                     <td><asp:Label ID="LblCourse" runat="server" Text="Course"></asp:Label> </td>
                     <td><asp:TextBox ID="txtCourse" runat="server"></asp:TextBox></td>
+                     <asp:HiddenField ID="HiddenField1" runat="server" />
                 </tr>
 
                 
