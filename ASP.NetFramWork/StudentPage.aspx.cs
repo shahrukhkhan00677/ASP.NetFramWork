@@ -61,7 +61,7 @@ namespace ASP.NetFramWork
         protected void Button1_Click(object sender, EventArgs e)
         {
             id = 0;
-//int a = 10 / id;
+           //int a = 10 / id;
             ViewState["I"] = id;
             Session["ID"] = id;
             Cache["ID"] = id;
