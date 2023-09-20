@@ -1,4 +1,5 @@
-﻿using ASP.NetFramWork.Model;
+﻿using DataAccessLayerStudy.Model;
+using DataAccessLayerStudy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,21 +8,27 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace ASP.NetFramWork
-{
+{ //h.w drop down in the gridview 
     public partial class Gridviewstudy : System.Web.UI.Page
     {
             List<Student> lststudent = new List<Student>();
 
+            List<string> weekday = new List<string>();   
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (ViewState["StudentData"]!=null)
-            {
-                lststudent = (List<Student>)ViewState["StudentData"];
+            weekday.Add("Sunday");
+            weekday.Add("Monday");
+            weekday.Add("Tuesday");
+            weekday.Add("Wednesday");
+            weekday.Add("Thursday");
+            weekday.Add("Friday");
+            weekday.Add("Saturday");
 
-                grdData.DataSource = lststudent;
-                grdData.DataBind();
-            }
-           
+            ddlWeekdays.DataSource = weekday;
+            ddlWeekdays.DataBind();
+             
+
+;
 
             Student student1 = new Student();
             student1.Id = 1;
@@ -52,6 +59,10 @@ namespace ASP.NetFramWork
         }
         protected void btnsave_Click(object sender, EventArgs e)
         {
+           DataContext dataContext = new DataContext();
+            dataContext.GetStudentData();
+
+            /*
             Student student1 = new Student();
             student1.Id = Convert.ToInt32(IdTextBox.Text);
             student1.Name =NameTextBox.Text;
@@ -71,8 +82,15 @@ namespace ASP.NetFramWork
 
             ViewState["StudentData"] = lststudent;
             grdData.DataSource = lststudent;
-            grdData.DataBind();
+            grdData.DataBind();*/
 
+        }
+
+        
+
+        protected void btnselected_Click(object sender, EventArgs e)
+        {
+            string value=ddlWeekdays.SelectedValue;
         }
     }
 }

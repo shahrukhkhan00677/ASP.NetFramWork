@@ -1,4 +1,5 @@
-﻿using ASP.NetFramWork.Model;
+﻿using DataAccessLayerStudy.Model;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,6 @@ namespace ASP.NetFramWork
     // the data is HTTP protocol 
     // HTTPS -- this protocol is state less
     //State management -
-
     //1.Client Side state management
     //a.ViewState
     //b.Hiddenfields

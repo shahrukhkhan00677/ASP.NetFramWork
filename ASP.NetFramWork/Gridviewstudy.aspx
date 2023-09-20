@@ -32,8 +32,43 @@
         </div>
 
         <div>
-            <asp:GridView ID="grdData" runat="server"></asp:GridView>
-           
+            <asp:GridView ID="grdData" runat="server" AutoGenerateColumns="false" >
+                <Columns>
+                    <asp:TemplateField HeaderText="Id">
+                        <ItemTemplate>
+                            <asp:Label ID="lblid" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"Id") %> ' > </asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Name">
+                        <ItemTemplate>
+                            <asp:TextBox ID="txtname" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"Name") %> ' > </asp:TextBox>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Course">
+                        <ItemTemplate>
+                            <asp:TextBox ID="txtCourse" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"Course") %> ' > </asp:TextBox>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+        </div>
+        <br />
+        <br />
+        <div> 
+            <asp:Label ID="lbldays" runat="server" Text="DayName"></asp:Label>
+            <asp:DropDownList ID="ddlWeekdays" runat="server" >
+                <%--<asp:ListItem Text="select Day" Value="-1"></asp:ListItem>
+                <asp:ListItem Text="Sunday"></asp:ListItem>
+                <asp:ListItem Text="Monday"></asp:ListItem>
+                <asp:ListItem Text="Tuesday"></asp:ListItem>
+                <asp:ListItem Text="Wednesday"></asp:ListItem>
+                <asp:ListItem Text="Thursday"></asp:ListItem>
+                <asp:ListItem Text="Friday"></asp:ListItem>
+                <asp:ListItem Text="Saturday"></asp:ListItem>--%>
+            </asp:DropDownList>
+            <asp:Button ID="btnselected" runat="server" Text="Selected" OnClick="btnselected_Click" />
         </div>
     </form>
 </body>
