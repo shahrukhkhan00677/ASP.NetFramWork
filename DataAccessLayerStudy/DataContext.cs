@@ -14,8 +14,9 @@ namespace DataAccessLayerStudy
     {
 
         string ConnectionString = "Server=DESKTOP-JUAIM1M\\SQLEXPRESS;Database=Code;Integrated Security=true";
-        public void GetStudentData()
+        public List<Student> GetStudentData()
         {
+            var studentData= new List<Student>();
             SqlConnection con = new SqlConnection(ConnectionString);
            // NpgsqlConnection con= new NpgsqlConnection(ConnectionString);
             
@@ -33,9 +34,32 @@ namespace DataAccessLayerStudy
                 string course = (string)sqlDataReader["Course"];
 
                 var objStudent = new Student(id, name, course);
+                studentData.Add(objStudent);
             }
 
             con.Close();
+            return studentData;
         }
+        public void SaveStudentData(Student objStudent)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand($"insert into Students values('{objStudent.Name}','{objStudent.Course}') ", con);
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally 
+            { 
+                con.Close();
+            }
+
+        }
+
     }
 }
