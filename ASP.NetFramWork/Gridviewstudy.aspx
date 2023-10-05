@@ -32,7 +32,7 @@
         </div>
 
         <div>
-            <asp:GridView ID="grdData" runat="server" AutoGenerateColumns="false" >
+            <asp:GridView ID="grdData" runat="server" AutoGenerateColumns="false" OnRowCommand="grdData_RowCommand" >
                 <Columns>
                     <asp:TemplateField HeaderText="Id">
                         <ItemTemplate>
@@ -51,8 +51,18 @@
                             <asp:TextBox ID="txtCourse" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"Course") %> ' > </asp:TextBox>
                         </ItemTemplate>
                     </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Edit">
+                        <ItemTemplate>
+                            <asp:Button ID="Editbtn" runat="server" Text="Edit" CommandName="Edit"
+                                 CommandArgument='<%# DataBinder.Eval(Container.DataItem,"Id") %> ' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
+
+
             </asp:GridView>
+            
+            
         </div>
         <br />
         <br />

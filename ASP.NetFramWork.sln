@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NetFramWork", "ASP.NetF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayerStudy", "DataAccessLayerStudy\DataAccessLayerStudy.csproj", "{00A24FA5-610D-4459-85D4-903D4BE5390B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqStudy", "Linq\LinqStudy.csproj", "{6F2F22E4-E49C-4D72-A36E-FFB1A24903F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{00A24FA5-610D-4459-85D4-903D4BE5390B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00A24FA5-610D-4459-85D4-903D4BE5390B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00A24FA5-610D-4459-85D4-903D4BE5390B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F2F22E4-E49C-4D72-A36E-FFB1A24903F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F2F22E4-E49C-4D72-A36E-FFB1A24903F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F2F22E4-E49C-4D72-A36E-FFB1A24903F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F2F22E4-E49C-4D72-A36E-FFB1A24903F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

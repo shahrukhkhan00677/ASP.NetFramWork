@@ -6,9 +6,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Caching;
 
 namespace ASP.NetFramWork
-{ //h.w drop down in the gridview 
+{ 
     public partial class Gridviewstudy : System.Web.UI.Page
     {
             List<Student> lststudent = new List<Student>();
@@ -66,7 +67,8 @@ namespace ASP.NetFramWork
         public void GetData()
         {
             DataContext dataContext = new DataContext();
-            lststudent = dataContext.GetStudentData();
+            // lststudent = dataContext.GetStudentData();
+            lststudent = dataContext.GetDataFromSp();
             grdData.DataSource = lststudent;
             grdData.DataBind();
 
@@ -93,22 +95,22 @@ namespace ASP.NetFramWork
             {
                 lststudent.Add(student1 );
             }
-
-
-
             ViewState["StudentData"] = lststudent;
             grdData.DataSource = lststudent;
             grdData.DataBind();*/
-
-
-
         }
-
-        
-
         protected void btnselected_Click(object sender, EventArgs e)
         {
             string value=ddlWeekdays.SelectedValue;
+        }
+
+        protected void grdData_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if(e.CommandName=="Edit")
+            {
+                string Id = e.CommandArgument.ToString();
+                Response.Redirect("UpdateStudentData.aspx?ID="+Id);
+            }
         }
     }
 }

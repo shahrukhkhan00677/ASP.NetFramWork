@@ -2,6 +2,7 @@
 using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
@@ -48,6 +49,7 @@ namespace DataAccessLayerStudy
             {
                 con.Open();
                 cmd.ExecuteNonQuery();
+                
 
             }
             catch (Exception ex)
@@ -60,6 +62,56 @@ namespace DataAccessLayerStudy
             }
 
         }
+        public List<Student> GetDataFromSp()
+        {
+            var studentData = new List<Student>();
+            SqlConnection con = new SqlConnection(ConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "myproc";
+
+            con.Open();
+            SqlDataReader sqlDataReader = cmd.ExecuteReader();
+
+            while (sqlDataReader.Read())
+            {
+                int id = (int)sqlDataReader["Id"];
+                string name = (string)sqlDataReader["Name"];
+                string course = (string)sqlDataReader["Course"];
+
+                var objStudent = new Student(id, name, course);
+                studentData.Add(objStudent);
+            }
+
+            con.Close();
+            return studentData;
+        }
+
+
+        public Student GetSingleStudentData(int id )
+        {
+            var objStudent = new Student();
+            SqlConnection con = new SqlConnection(ConnectionString);
+
+            SqlCommand cmd = new SqlCommand($"Select * from Students where id={id}", con); //string interpolation $
+
+            con.Open();
+            SqlDataReader sqlDataReader = cmd.ExecuteReader();
+
+            sqlDataReader.Read();
+            
+                objStudent.Id = (int)sqlDataReader["Id"];
+            objStudent.Name = (string)sqlDataReader["Name"];
+            objStudent.Course = (string)sqlDataReader["Course"];
+
+            con.Close();
+            return objStudent;
+
+        }
+    }
+
 
     }
-}
+
