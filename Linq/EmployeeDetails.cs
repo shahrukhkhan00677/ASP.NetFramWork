@@ -58,6 +58,13 @@ namespace LinqStudy
             objemp3.EmpDepartment = department2;
             employees.Add(objemp3);
 
+            Employee objemp4 = new Employee();
+            objemp4.Id = 4;
+            objemp4.Name = "Sagar kumar";
+            objemp4.Salary = 10;
+            objemp4.EmpDepartment = department2;
+            employees.Add(objemp4);
+
             #endregion
         }
         public void GetScroreGraterthan80() 
@@ -249,7 +256,7 @@ namespace LinqStudy
             #endregion
 
             #region ElementAtGroupBy
-
+            // find through i
             /*var element=employees.ElementAt(0);
             Console.WriteLine(element.Name);*/
 
@@ -257,6 +264,21 @@ namespace LinqStudy
 
             #region GroupBy
 
+            /*var empGroup= employees.GroupBy(x => x.Salary);
+
+            foreach (var item in empGroup)
+            {
+                Console.WriteLine("item key "+item.Key);
+
+                foreach (var emp in item)
+                {
+
+                    Console.WriteLine(emp.Name);
+                    Console.WriteLine(emp.Salary);
+
+                }
+            }
+*/
 
             #endregion  
         }
