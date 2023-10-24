@@ -3,6 +3,31 @@
 @{
 }
 <div>
-    <h1> This is Employee Page</h1>
+    <div class="col-3">
+        <a asp-page="AddEmployee" class="btn btn-info form-control text-white">Create New Employee</a>
+
+    </div>
+    <h1>Employee Details</h1>
     
+    <div>
+        <table class="table table-striped border" >
+            <tr class="table-secondary">
+                <th> Name</th>
+                <th>Age </th>
+                <th>Salary </th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </tr>
+            @foreach(var item in Model.Employees)
+            {
+            <tr>
+                <td>@Html.DisplayFor(m=>item.Name) </td>
+                <td>@Html.DisplayFor(m=>item.Age) </td>
+                <td>@Html.DisplayFor(m=>item.Salary) </td>
+                    <td><button class="btn btn-sm btn-success text-white">Delete</button> </td>
+                    <td> <a class="btn-danger btn-sm">Edit</a> </td>
+            </tr>
+            }
+        </table>
+    </div>
 </div>

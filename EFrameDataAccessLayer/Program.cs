@@ -1,18 +1,9 @@
-
-using ASPDotNetCoreStudy.Model;
-using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-
-string ConnectionString = "Server=DESKTOP-JUAIM1M\\SQLEXPRESS;Database=EFStudy;Integrated Security=true ;TrustServerCertificate=True";
-builder.Services.AddDbContext<AppDBContext>(options => options.UseSqlServer(ConnectionString));
-
 var app = builder.Build();
-
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
