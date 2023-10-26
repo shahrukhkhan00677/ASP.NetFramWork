@@ -1,0 +1,18 @@
+﻿@page
+@model ASPDotNetCoreStudy.Pages.EditEmpoyeeModel
+@{
+}
+<div>
+    <form method="post">
+        <h1>This is Add Employee page </h1>
+        <p>Name</p>
+        <input type="text" name="name" asp-for="employee.Name" /><br />
+        <p>Age</p>
+        <input type="text" name="age" asp-for="employee.Age" /><br />
+        <p>Salary</p>
+        <input type="text" name="salary" asp-for="employee.Salary" /><br /><br />
+
+        <button type="submit" class="btn btn-primary"> Save</button>
+        <a asp-page="ShowEmployee" class="btn btn-info text-white">Cancel</a>
+    </form>
+</div>

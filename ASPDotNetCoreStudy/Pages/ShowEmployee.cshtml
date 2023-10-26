@@ -8,7 +8,7 @@
 
     </div>
     <h1>Employee Details</h1>
-    
+    <form method="post">
     <div>
         <table class="table table-striped border" >
             <tr class="table-secondary">
@@ -24,10 +24,12 @@
                 <td>@Html.DisplayFor(m=>item.Name) </td>
                 <td>@Html.DisplayFor(m=>item.Age) </td>
                 <td>@Html.DisplayFor(m=>item.Salary) </td>
-                    <td><button class="btn btn-sm btn-success text-white">Delete</button> </td>
-                    <td> <a class="btn-danger btn-sm">Edit</a> </td>
+                    <td><button asp-route-id="@item.Id" onclick="return confirm('Are you sure to Delete')"  class="btn btn-sm btn-success text-white" >Delete</button> </td>
+                <td> <a asp-page="EditEmployee" asp-route-id="@item.Id"  class="btn-danger btn-sm">Edit</a> </td>
             </tr>
             }
         </table>
     </div>
+    </form>
 </div>
+

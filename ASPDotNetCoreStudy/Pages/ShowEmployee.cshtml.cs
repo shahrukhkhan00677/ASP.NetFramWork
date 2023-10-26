@@ -36,5 +36,16 @@ namespace ASPDotNetCoreStudy.Pages
         {
             appDbContext=data;
         }
+
+        public IActionResult OnPost(int id)
+        {
+            var employeetoRemove= appDbContext.Employees.Find(id);
+            if (employeetoRemove != null)
+            {
+                appDbContext.Employees.Remove(employeetoRemove);
+                appDbContext.SaveChanges();
+            }
+            return RedirectToPage("ShowEmployee");
+        }
     }
 }
